@@ -1,6 +1,6 @@
 
-let d = new Date();
 
+let d = new Date();
 
 const monthListArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const dayListArr = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
@@ -12,6 +12,8 @@ let monthDisp;
 let monthMore;
 let monthLess;
 let dateList;
+let allTilesArr = [];
+let allTilesArrClone = [];
 
 
 
@@ -81,9 +83,10 @@ function createGrid(){
   for(var i = 0; i < colVal; i++){
     for(var j = 0; j < rowVal; j++){
       const dateLisTile = document.createElement('div');
-      dateLisTile.id = i+ ''+ j;
+      dateLisTile.id = i+''+j;
       dateLisTile.classList = 'tile';
       dateLis.appendChild(dateLisTile);
+      allTilesArr.push(i+''+j);
     }
   }
 }
@@ -98,24 +101,33 @@ function changeDate(year, month){
   cD.setFullYear(year + 1900, month, 1);
   let dateCheck = 2;
   let startPos = cD.getDay();
+  const startPos2 = startPos;
   let firstLetter = 0;
 
-  console.log(startPos + ' startPos')
+  allTilesArrClone = [];
+  for(var i = 0; i < allTilesArr.length; i++){allTilesArrClone[i] = allTilesArr[i]};
 
   while(cD.getMonth() == month && dateCheck < 32){
     dateCheck++;
     cD.setDate(dateCheck);
   }
   dateCheck--;
-
   for(var i = 1; i < dateCheck; i++){
       document.getElementById(firstLetter + '' + startPos).innerHTML = i;
+      for(var j = 0; j < allTilesArrClone.length; j++){
+        if(allTilesArrClone[j] == (firstLetter + '' + startPos)){
+          allTilesArrClone.splice(j, 1);
+        }
+      }
       startPos++;
       if(startPos == 7){
         startPos = 0;
         firstLetter++;
       }
     }
+  for(var i = 0; i < allTilesArrClone.length; i++){
+    document.getElementById(allTilesArrClone[i]).innerHTML='-';
+  }
   }
 
 
@@ -135,4 +147,5 @@ function assigners(){
   createGeneral();
   assigners();
   changeMonth(d.getMonth(), d.getYear());
+  changeDate(d.getYear(), d.getMonth())
 })()
