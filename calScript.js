@@ -43,6 +43,7 @@ function createGeneral(){
     }
     else{currMonth--;}
     changeMonth(currMonth, currYear);
+    changeDate(currYear, currMonth)
   });
   calHeader.appendChild(monthMinus);
   const monthPlus = document.createElement('button');
@@ -55,6 +56,7 @@ function createGeneral(){
     }
     else{currMonth++;}
     changeMonth(currMonth, currYear);
+    changeDate(currYear, currMonth)
   })
   calHeader.appendChild(monthPlus);
   createGrid();
@@ -80,10 +82,10 @@ function createGrid(){
   const dateLis = document.createElement('div');
   dateLis.id = "dateList";
   app.appendChild(dateLis);
-  for(var i = 0; i < rowVal; i++){
-    for(var j = 0; j < colVal; j++){
+  for(var i = 0; i < colVal; i++){
+    for(var j = 0; j < rowVal; j++){
       const dateLisTile = document.createElement('div');
-      dateLisTile.id = i+j;
+      dateLisTile.id = i+ ''+ j;
       dateLisTile.classList = 'tile';
       dateLis.appendChild(dateLisTile);
     }
@@ -94,8 +96,12 @@ function changeMonth(mon, year){
 
   monthDisp.innerHTML = monthListArr[mon];
   monthDisp.innerHTML += ' ' + (year + 1900);
-  }
+}
 
+function changeDate(year, month){
+  cD.setFullYear(year + 1900, month, 1);
+  console.log(cD)
+}
 
 
 
