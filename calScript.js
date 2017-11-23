@@ -5,6 +5,10 @@ const colVal = 6;
 const rowVal = 7;
 const app = document.getElementById('app');
 
+let currMonth = d.getMonth();
+let currYear = d.getYear();
+let currDate = d.getDate();
+
 let monthRun = 0;
 let cD = new Date();
 
@@ -19,6 +23,16 @@ function createGeneral(){
   const monthDis = document.createElement('h2');
   monthDis.id = 'monthDisp';
   calHeader.appendChild(monthDis);
+  const monthMinus = document.createElement('button');
+  monthMinus.id = 'monthLess';
+  monthMinus.innerHTML = '&#8592';
+  monthMinus.addEventListener('click', function(){console.log('test')});
+  calHeader.appendChild(monthMinus);
+  const monthPlus = document.createElement('button');
+  monthPlus.id = 'monthMore';
+  monthPlus.innerHTML = '&#8594'
+  monthPlus.addEventListener('click', function(){console.log('test')})
+  calHeader.appendChild(monthPlus)
 }
 
 function getMonth(mon, year){
