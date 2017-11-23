@@ -1,8 +1,14 @@
 html, body{
   background-color: #f7f7f7;
+  font-family: arial;
 }
 
 #app{
   width: 480px;
   background-color: #d9dde2;
+}
+
+#monthDisp{
+  margin-left: 5px;
+  padding-top: 8px;
 }
