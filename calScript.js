@@ -26,16 +26,30 @@ function createGeneral(){
   const monthMinus = document.createElement('button');
   monthMinus.id = 'monthLess';
   monthMinus.innerHTML = '&#8592';
-  monthMinus.addEventListener('click', function(){console.log('test')});
+  monthMinus.addEventListener('click', function(){
+    if(currMonth == 0){
+      currMonth = 11;
+      currYear--;
+    }
+    else{currMonth--;}
+    changeMonth(currMonth, currYear);
+  });
   calHeader.appendChild(monthMinus);
   const monthPlus = document.createElement('button');
   monthPlus.id = 'monthMore';
   monthPlus.innerHTML = '&#8594'
-  monthPlus.addEventListener('click', function(){console.log('test')})
-  calHeader.appendChild(monthPlus)
+  monthPlus.addEventListener('click', function(){
+    if(currMonth == 11){
+      currMonth = 0;
+      currYear++;
+    }
+    else{currMonth++;}
+    changeMonth(currMonth, currYear);
+  })
+  calHeader.appendChild(monthPlus);
 }
 
-function getMonth(mon, year){
+function changeMonth(mon, year){
 
   if(mon == 0){monthDisp.innerHTML = 'January';}
   else if(mon == 1){monthDisp.innerHTML = 'February';}
@@ -61,5 +75,5 @@ function assigners(){
 (function init(){
   createGeneral();
   assigners();
-  getMonth(d.getMonth(), d.getYear());
+  changeMonth(d.getMonth(), d.getYear());
 })()
