@@ -6,6 +6,7 @@ html, body{
 #app{
   width: 480px;
   background-color: #d9dde2;
+  margin: 0 auto;
 }
 
 button{
@@ -22,4 +23,19 @@ button:hover{
   padding-top: 8px;
   width: 230px;
   display: inline-block;
+}
+
+.tile{
+  width: 66px;
+  height: 66px;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+.nameTile{
+  text-align: center;
+  padding-top: 18px;
+  height: 48px;
+  font-size: 1.5em;
+  font-weight: bold;
 }

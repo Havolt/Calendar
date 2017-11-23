@@ -47,6 +47,25 @@ function createGeneral(){
     changeMonth(currMonth, currYear);
   })
   calHeader.appendChild(monthPlus);
+  createGrid();
+}
+
+function createGrid(){
+  const dayLis = document.createElement('div');
+  dayLis.id = "dayList";
+  app.appendChild(dayLis);
+  for(var i = 0; i < 7; i++){
+    const dayLisName = document.createElement('div');
+    dayLisName.classList = 'nameTile tile';
+    if(i == 0){dayLisName.innerHTML = 'Mo'}
+    else if(i == 1){dayLisName.innerHTML = 'Tu'}
+    else if(i == 2){dayLisName.innerHTML = 'We'}
+    else if(i == 3){dayLisName.innerHTML = 'Th'}
+    else if(i == 4){dayLisName.innerHTML = 'Fr'}
+    else if(i == 5){dayLisName.innerHTML = 'Sa'}
+    else if(i == 6){dayLisName.innerHTML = 'Su'}
+    dayLis.appendChild(dayLisName);
+  }
 }
 
 function changeMonth(mon, year){
@@ -65,6 +84,8 @@ function changeMonth(mon, year){
   else if(mon == 11){monthDisp.innerHTML = 'December';}
   monthDisp.innerHTML += ' ' + (year + 1900);
   }
+
+
 
 
 function assigners(){
