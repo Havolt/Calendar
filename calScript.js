@@ -97,7 +97,8 @@ function changeMonth(mon, year){
 function changeDate(year, month){
   cD.setFullYear(year + 1900, month, 1);
   let dateCheck = 2;
-  const startPos = cD.getDay();
+  let startPos = cD.getDay();
+  let firstLetter = 0;
 
   console.log(startPos + ' startPos')
 
@@ -107,11 +108,16 @@ function changeDate(year, month){
   }
   dateCheck--;
 
-  for(var i = 0; i < dateCheck; i++){
-
+  for(var i = 1; i < dateCheck; i++){
+      document.getElementById(firstLetter + '' + startPos).innerHTML = i;
+      startPos++;
+      if(startPos == 7){
+        startPos = 0;
+        firstLetter++;
+      }
+    }
   }
 
-}
 
 
 
