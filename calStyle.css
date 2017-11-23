@@ -25,11 +25,14 @@ button:hover{
   display: inline-block;
 }
 
+
+
 .tile{
   width: 66px;
   height: 66px;
   border: 1px solid black;
   display: inline-block;
+  margin-top: -3px;
 }
 
 .nameTile{
@@ -38,4 +41,5 @@ button:hover{
   height: 48px;
   font-size: 1.5em;
   font-weight: bold;
+  margin-bottom: 4px;
 }

@@ -4,6 +4,12 @@ let d = new Date();
 const colVal = 6;
 const rowVal = 7;
 const app = document.getElementById('app');
+let calHead;
+let monthDisp;
+let monthMore;
+let monthLess;
+let dateList;
+
 
 let currMonth = d.getMonth();
 let currYear = d.getYear();
@@ -66,6 +72,18 @@ function createGrid(){
     else if(i == 6){dayLisName.innerHTML = 'Su'}
     dayLis.appendChild(dayLisName);
   }
+
+  const dateLis = document.createElement('div');
+  dateLis.id = "dateList";
+  app.appendChild(dateLis);
+  for(var i = 0; i < rowVal; i++){
+    for(var j = 0; j < colVal; j++){
+      const dateLisTile = document.createElement('div');
+      dateLisTile.id = i+j;
+      dateLisTile.classList = 'tile';
+      dateLis.appendChild(dateLisTile);
+    }
+  }
 }
 
 function changeMonth(mon, year){
@@ -89,9 +107,14 @@ function changeMonth(mon, year){
 
 
 function assigners(){
-  const calHead = document.getElementById('calHead');
-  const monthDisp = document.getElementById('monthDisp');
+  calHead = document.getElementById('calHead');
+  monthDisp = document.getElementById('monthDisp');
+  monthMore = document.getElementById('monthMore');
+  monthLess = document.getElementById('monthLess');
+  dateList = document.getElementById('dateList');
 }
+
+
 
 (function init(){
   createGeneral();
