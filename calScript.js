@@ -3,6 +3,7 @@ let d = new Date();
 
 
 const monthListArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const dayListArr = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const colVal = 6;
 const rowVal = 7;
 const app = document.getElementById('app');
@@ -69,13 +70,8 @@ function createGrid(){
   for(var i = 0; i < 7; i++){
     const dayLisName = document.createElement('div');
     dayLisName.classList = 'nameTile tile';
-    if(i == 0){dayLisName.innerHTML = 'Mo'}
-    else if(i == 1){dayLisName.innerHTML = 'Tu'}
-    else if(i == 2){dayLisName.innerHTML = 'We'}
-    else if(i == 3){dayLisName.innerHTML = 'Th'}
-    else if(i == 4){dayLisName.innerHTML = 'Fr'}
-    else if(i == 5){dayLisName.innerHTML = 'Sa'}
-    else if(i == 6){dayLisName.innerHTML = 'Su'}
+    dayLisName.innerHTML = dayListArr[i];
+
     dayLis.appendChild(dayLisName);
   }
 
@@ -100,7 +96,21 @@ function changeMonth(mon, year){
 
 function changeDate(year, month){
   cD.setFullYear(year + 1900, month, 1);
-  console.log(cD)
+  let dateCheck = 2;
+  const startPos = cD.getDay();
+
+  console.log(startPos + ' startPos')
+
+  while(cD.getMonth() == month && dateCheck < 32){
+    dateCheck++;
+    cD.setDate(dateCheck);
+  }
+  dateCheck--;
+
+  for(var i = 0; i < dateCheck; i++){
+
+  }
+
 }
 
 
