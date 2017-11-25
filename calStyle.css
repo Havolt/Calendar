@@ -11,11 +11,17 @@ html, body{
 
 button{
   margin-left: 20px;
+  background-color: #d9dde2;
+  font-size: 2em;
+  border: 1px solid #d9dde2;
 }
 
 button:hover{
   cursor: pointer;
+}
 
+#monthLess{
+  margin-left: 80px;
 }
 
 #monthDisp{

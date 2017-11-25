@@ -38,7 +38,7 @@ function createGeneral(){
   calHeader.appendChild(monthDis);
   const monthMinus = document.createElement('button');
   monthMinus.id = 'monthLess';
-  monthMinus.innerHTML = '&#8592';
+  monthMinus.innerHTML = '<i class="fa fa-angle-left"></i>';
   monthMinus.addEventListener('click', function(){
     if(currMonth == 0){
       currMonth = 11;
@@ -51,7 +51,7 @@ function createGeneral(){
   calHeader.appendChild(monthMinus);
   const monthPlus = document.createElement('button');
   monthPlus.id = 'monthMore';
-  monthPlus.innerHTML = '&#8594'
+  monthPlus.innerHTML = '<i class="fa fa-angle-right></i>'
   monthPlus.addEventListener('click', function(){
     if(currMonth == 11){
       currMonth = 0;
