@@ -112,11 +112,20 @@ function changeDate(year, month){
     cD.setDate(dateCheck);
   }
   dateCheck--;
-  for(var i = 1; i < dateCheck; i++){
+  for(var i = 1; i <= dateCheck; i++){
       document.getElementById(firstLetter + '' + startPos).innerHTML = i;
+      document.getElementById(firstLetter + '' + startPos).style.backgroundColor="#d9dde2";
+      if(d.getDate() == i && ((d.getMonth()+1) == cD.getMonth() && d.getYear() == year) ){
+        console.log(cD.getMonth());
+        console.log(d.getMonth()+1)
+        console.log('yes')
+        document.getElementById(firstLetter + '' + startPos).style.backgroundColor="#FFFDF4";
+      }
       for(var j = 0; j < allTilesArrClone.length; j++){
+
         if(allTilesArrClone[j] == (firstLetter + '' + startPos)){
-          allTilesArrClone.splice(j, 1);
+        console.log(i)
+        allTilesArrClone.splice(j, 1);
         }
       }
       startPos++;
