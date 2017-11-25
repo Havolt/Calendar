@@ -10,18 +10,20 @@ html, body{
 }
 
 button{
-  margin-left: 20px;
+  margin-left: 26px;
   background-color: #d9dde2;
-  font-size: 2em;
+  font-size: 2.5em;
   border: 1px solid #d9dde2;
 }
 
 button:hover{
   cursor: pointer;
+  color: white;
+  text-shadow: 0px 0px 1px black;
 }
 
 #monthLess{
-  margin-left: 80px;
+  margin-left: 100px;
 }
 
 #monthDisp{
